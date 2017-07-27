@@ -10,9 +10,11 @@ module.exports = {
 
   included: function(app) {
     this._super.included.apply(this, arguments);
-    app.import('vendor/moment/moment.js');
-    app.import('vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
-    app.import('vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
+    if (typeof FastBoot === 'undefined') {
+      app.import('vendor/moment/moment.js');
+      app.import('vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
+      app.import('vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');
+    }
   },
 
   treeForVendor: function(tree) {
